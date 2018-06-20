@@ -11,6 +11,14 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/login', function () {
+    return view('login');
 });
+
+Route::post('/login','LoginController@auth');
+
+Route::get('/trackID/{id}','TrackIDController@updateID');
+
+Route::get('/dashboard','DashboardController@dashboard');
+
+Route::get('/new/TrackID','TrackIDController@createNew');
