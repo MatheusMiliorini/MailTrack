@@ -31,6 +31,7 @@
                     <th>Read count</th>
                     <th>First access</th>
                     <th>Last access</th>
+                    <th>Monitoring</th>
                 </thead>
                 <tbody>
                     @foreach ($dados as $dado)
@@ -41,13 +42,47 @@
                             <td>{{$dado->contagem_acessos}}</td>
                             <td>{{$dado->primeiro_acesso}}</td>
                             <td>{{$dado->ultimo_acesso}}</td>
+                            @if ($dado->ativo == 1)
+                            <td><a href="/trackID/disable/{{$dado->trackID}}">Yes</a></td>
+                            @else
+                            <td><a href="/trackID/enable/{{$dado->trackID}}">No</a></td>
+                            @endif
                         </tr>
                     @endforeach
                 </tbody>
             </table>
 
-            <a class="btn btn-outline-info" href="/new/TrackID/" role="button">Create new TrackID</a>
+            <a class="btn btn-outline-info" href="/new/TrackID/" role="button" data-toggle="modal" data-target="#modal-newTrackID">Create new TrackID</a>
         </div> 
+    </div>
+
+
+    <div class="modal fade" tabindex="-1" role="dialog" id="modal-newTrackID">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Create new TrackID</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="/new/TrackID" method="post">
+                        @csrf
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input class="form-control" type="text" id="name" name="name" placeholder="Table reservation for friday">
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-success largo" type="submit">Save</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!-- Optional JavaScript -->

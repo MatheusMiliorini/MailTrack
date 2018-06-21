@@ -17,8 +17,12 @@ Route::get('/login', function () {
 
 Route::post('/login','LoginController@auth');
 
-Route::get('/trackID/{id}','TrackIDController@updateID');
+Route::get('/trackID/{id}','TrackIDController@contaAcesso');
 
 Route::get('/dashboard','DashboardController@dashboard');
 
-Route::get('/new/TrackID','TrackIDController@createNew');
+Route::post('/new/TrackID','TrackIDController@createNew');
+
+Route::get('trackID/enable/{id}','TrackIDController@enable');
+
+Route::get('trackID/disable/{id}','TrackIDController@disable');
