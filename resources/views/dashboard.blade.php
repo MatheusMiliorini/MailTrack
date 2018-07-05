@@ -158,28 +158,28 @@
                     <div class="row">
                         <div class="col-md-6 col-lg-3">
                             <div class="statistic__item statistic__item--green">
-                                <h2 class="number">10,368</h2>
-                                <span class="desc">members online</span>
+                                <h2 class="number">{{$aberturas->acessos_total}}</h2>
+                                <span class="desc">E-mails oppened</span>
                                 <div class="icon">
-                                    <i class="zmdi zmdi-account-o"></i>
+                                    <i class="zmdi zmdi-book"></i>
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-6 col-lg-3">
                             <div class="statistic__item statistic__item--orange">
-                                <h2 class="number">388,688</h2>
-                                <span class="desc">items sold</span>
+                                <h2 class="number">{{$total_trackIDs->total_trackIDs}}</h2>
+                                <span class="desc">TrackIDs created</span>
                                 <div class="icon">
-                                    <i class="zmdi zmdi-shopping-cart"></i>
+                                    <i class="zmdi zmdi-eye"></i>
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-6 col-lg-3">
                             <div class="statistic__item statistic__item--blue">
-                                <h2 class="number">1,086</h2>
-                                <span class="desc">this week</span>
+                                <h2 class="number">{{$trackIDs_ativos->trackIDs_ativos}}</h2>
+                                <span class="desc">Active TrackIDs</span>
                                 <div class="icon">
-                                    <i class="zmdi zmdi-calendar-note"></i>
+                                    <i class="zmdi zmdi-notifications-active"></i>
                                 </div>
                             </div>
                         </div>

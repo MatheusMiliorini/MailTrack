@@ -19,7 +19,7 @@ Route::get('/register',function() {
     return view('register');
 });
 
-Route::get('/logout','LoginController@logout');
+Route::get('/logout','LoginController@logout')->middleware('checkLogin');
 
 Route::post('/register','LoginController@cadastro');
 
@@ -27,10 +27,10 @@ Route::post('/login','LoginController@auth');
 
 Route::get('/trackID/{id}','TrackIDController@contaAcesso');
 
-Route::get('/dashboard','DashboardController@dashboard');
+Route::get('/dashboard','DashboardController@dashboard')->middleware('checkLogin');
 
-Route::post('/new/TrackID','TrackIDController@createNew');
+Route::post('/new/TrackID','TrackIDController@createNew')->middleware('checkLogin');
 
-Route::get('trackID/enable/{id}','TrackIDController@enable');
+Route::get('/trackID/enable/{id}','TrackIDController@enable')->middleware('checkLogin');
 
-Route::get('trackID/disable/{id}','TrackIDController@disable');
+Route::get('/trackID/disable/{id}','TrackIDController@disable')->middleware('checkLogin');

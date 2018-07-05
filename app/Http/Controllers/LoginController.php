@@ -26,17 +26,6 @@
 
         }
 
-        public static function checkLogin($request) {
-            
-            //Se for falso, vai retornar para o login
-            if ($request->session()->has('email')) {
-                return true;
-            } else {
-                return false;
-            }
-
-        }
-
         public function cadastro(Request $request) {
             $dados = $request->all();
 
