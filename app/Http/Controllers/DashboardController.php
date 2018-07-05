@@ -14,7 +14,10 @@
                 return redirect('/login')->with('error','You need to be logged in to access this page!');
             } else {
                 $dados = DB::select('SELECT * FROM trackIDs WHERE email_usuario=?',[$request->session()->get('email')]);
-                return view('dashboard')->with('dados',$dados);
+                return view('dashboard')->with('dados',$dados)
+                ->with('nome',$request->session()->get('nome'))
+                ->with('sobrenome',$request->session()->get('sobrenome'))
+                ->with('email',$request->session()->get('email'));
             }
 
         }

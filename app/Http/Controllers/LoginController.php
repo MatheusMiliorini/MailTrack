@@ -15,10 +15,13 @@
             if (count($login) == 1) {
                 //Guarda o e-mail na sessão
                 $request->session()->put('email',$dados['email']);
+                $request->session()->put('nome',$login[0]->primeiro_nome);
+                $request->session()->put('sobrenome',$login[0]->ultimo_nome);
+
                 //Joga o usuário autenticado para o dashboard
                 return redirect('/dashboard');
             } else {
-                return redirect('/login')->with('error','Wrong username or password!');
+                return redirect('/login');
             }
 
         }
