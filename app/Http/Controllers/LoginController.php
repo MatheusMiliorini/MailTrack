@@ -36,5 +36,27 @@
             }
 
         }
+
+        public function cadastro(Request $request) {
+            $dados = $request->all();
+
+            try {
+                $inseriu = DB::insert('INSERT INTO usuarios VALUES(?,?,?,?)',[
+                    $dados['email'],$dados['nome'],$dados['sobrenome'],$dados['password']
+                ]);
+    
+                if ($inseriu) {
+                    return redirect('/login')->with('message','Account created. You can now login :D');
+                }
+            } catch(\Exception $e) {
+                return redirect('/register')->with('erro','An error has occured. Please try again using a different e-mail');
+            }
+        }
+
+        public function logout(Request $request) {
+            $request->session()->flush();
+
+            return redirect('/login')->with('message','Logged out');
+        }
     }
 ?>

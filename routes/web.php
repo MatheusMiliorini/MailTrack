@@ -19,6 +19,10 @@ Route::get('/register',function() {
     return view('register');
 });
 
+Route::get('/logout','LoginController@logout');
+
+Route::post('/register','LoginController@cadastro');
+
 Route::post('/login','LoginController@auth');
 
 Route::get('/trackID/{id}','TrackIDController@contaAcesso');

@@ -60,6 +60,9 @@
                                 <button class="au-btn au-btn--block au-btn--green m-b-20" type="submit">Login</button>
                             </form>
                             <div class="register-link">
+                                @if (session('message'))
+                                    <p style="color:green">{{session('message')}}</p>
+                                @endif
                                 <p>
                                     Don't have an account?
                                     <a href="/register">Register</a>

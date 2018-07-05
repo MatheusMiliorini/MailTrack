@@ -47,18 +47,31 @@
                             </a>
                         </div>
                         <div class="login-form">
-                            <form action="" method="post">
+
+                            <form action="/register" method="post">
+                                @csrf
+                                <div class="form-group">
+                                    <label>First Name</label>
+                                    <input class="au-input au-input--full" type="text" name="nome" placeholder="John" required>
+                                </div>
+                                <div class="form-group">
+                                    <label>Last Name</label>
+                                    <input class="au-input au-input--full" type="text" name="sobrenome" placeholder="Marston" required>
+                                </div>
                                 <div class="form-group">
                                     <label>Email Address</label>
-                                    <input class="au-input au-input--full" type="email" name="email" placeholder="Email">
+                                    <input class="au-input au-input--full" type="email" name="email" placeholder="Email" required>
                                 </div>
                                 <div class="form-group">
                                     <label>Password</label>
-                                    <input class="au-input au-input--full" type="password" name="password" placeholder="Password">
+                                    <input class="au-input au-input--full" type="password" name="password" placeholder="Password" required>
                                 </div>
                                 <button class="au-btn au-btn--block au-btn--green m-b-20" type="submit">register</button>
                             </form>
                             <div class="register-link">
+                                @if (session('erro'))
+                                    <p style="color:red;">{{session('erro')}}</p>
+                                @endif
                                 <p>
                                     Already have account?
                                     <a href="/login">Login</a>
