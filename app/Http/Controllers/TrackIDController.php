@@ -16,7 +16,7 @@
                 DB::insert("INSERT INTO acessos(trackID,data) VALUES(?,?)",[$id,date('Y-m-d H:i:s')]);
             }
 
-            return date('Y-m-d H:i:s');
+            return view('trackID');
         }
 
         public function createNew(Request $request) {
