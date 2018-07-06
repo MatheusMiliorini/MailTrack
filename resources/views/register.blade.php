@@ -73,7 +73,7 @@
                                     <p style="color:red;">{{session('erro')}}</p>
                                 @endif
                                 <p>
-                                    Already have account?
+                                    Already have an account?
                                     <a href="/login">Login</a>
                                 </p>
                             </div>

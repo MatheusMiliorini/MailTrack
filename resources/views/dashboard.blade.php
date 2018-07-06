@@ -156,7 +156,7 @@
             <section class="statistic statistic2">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-6 col-lg-3">
+                        <div class="col-md-6 col-lg-4">
                             <div class="statistic__item statistic__item--green">
                                 <h2 class="number">{{$aberturas->acessos_total}}</h2>
                                 <span class="desc">E-mails oppened</span>
@@ -165,7 +165,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6 col-lg-3">
+                        <div class="col-md-6 col-lg-4">
                             <div class="statistic__item statistic__item--orange">
                                 <h2 class="number">{{$total_trackIDs->total_trackIDs}}</h2>
                                 <span class="desc">TrackIDs created</span>
@@ -174,21 +174,12 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6 col-lg-3">
+                        <div class="col-md-6 col-lg-4">
                             <div class="statistic__item statistic__item--blue">
                                 <h2 class="number">{{$trackIDs_ativos->trackIDs_ativos}}</h2>
                                 <span class="desc">Active TrackIDs</span>
                                 <div class="icon">
                                     <i class="zmdi zmdi-notifications-active"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-lg-3">
-                            <div class="statistic__item statistic__item--red">
-                                <h2 class="number">$1,060,386</h2>
-                                <span class="desc">total earnings</span>
-                                <div class="icon">
-                                    <i class="zmdi zmdi-money"></i>
                                 </div>
                             </div>
                         </div>
@@ -223,30 +214,16 @@
                         <div class="col-md-6 col-lg-4">
                             <!-- TOP CAMPAIGN-->
                             <div class="top-campaign">
-                                <h3 class="title-3 m-b-30">top campaigns</h3>
+                                <h3 class="title-3 m-b-30">Top read e-mails</h3>
                                 <div class="table-responsive">
                                     <table class="table table-top-campaign">
                                         <tbody>
+                                            @foreach ($top_leituras as $item)
                                             <tr>
-                                                <td>1. Australia</td>
-                                                <td>$70,261.65</td>
+                                                <td>{{$loop->index+1}}. {{$item->observacao}}</td>
+                                                <td>{{$item->contagem_acessos}}</td>
                                             </tr>
-                                            <tr>
-                                                <td>2. United Kingdom</td>
-                                                <td>$46,399.22</td>
-                                            </tr>
-                                            <tr>
-                                                <td>3. Turkey</td>
-                                                <td>$35,364.90</td>
-                                            </tr>
-                                            <tr>
-                                                <td>4. Germany</td>
-                                                <td>$20,366.96</td>
-                                            </tr>
-                                            <tr>
-                                                <td>5. France</td>
-                                                <td>$10,366.96</td>
-                                            </tr>
+                                            @endforeach
                                         </tbody>
                                     </table>
                                 </div>
