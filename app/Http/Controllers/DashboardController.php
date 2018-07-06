@@ -9,7 +9,7 @@
         
         public function dashboard(Request $request) {
 
-            $dados = DB::select('SELECT * FROM trackIDs WHERE email_usuario=?',[$request->session()->get('email')]);
+            $dados = DB::select('SELECT * FROM trackIDs WHERE email_usuario=? ORDER BY data_criacao DESC',[$request->session()->get('email')]);
                     
             //Busca quantas vezes os links foram abertos para esse usuário
             $aberturas = DB::select('SELECT SUM(contagem_acessos) AS acessos_total FROM trackIDs WHERE email_usuario=?',[$request->session()->get('email')]);
