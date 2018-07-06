@@ -58,7 +58,7 @@
                                 <div class="account-dropdown js-dropdown">
                                     <div class="info clearfix">
                                         
-                                        <div class="content">
+                                        <div class="content" style="margin-left: 0px;">
                                             <h5 class="name">
                                                 <a href="#">{{$nome}} {{$sobrenome}}</a>
                                             </h5>
@@ -117,7 +117,7 @@
                         <div class="account-dropdown js-dropdown">
                             <div class="info clearfix">
                                 
-                                <div class="content">
+                                <div class="content" style="margin-left: 0px;">
                                     <h5 class="name">
                                         <a href="#">{{$nome}} {{$sobrenome}}</a>
                                     </h5>
@@ -197,21 +197,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-md-6 col-lg-4">
-                            <!-- CHART-->
-                            <div class="statistic-chart-1">
-                                <h3 class="title-3 m-b-30">chart</h3>
-                                <div class="chart-wrap">
-                                    <canvas id="widgetChart5"></canvas>
-                                </div>
-                                <div class="statistic-chart-1-note">
-                                    <span class="big">10,368</span>
-                                    <span>/ 16220 items sold</span>
-                                </div>
-                            </div>
-                            <!-- END CHART-->
-                        </div>
-                        <div class="col-md-6 col-lg-4">
+                        <div class="col-md-6 col-lg-6">
                             <!-- TOP CAMPAIGN-->
                             <div class="top-campaign">
                                 <h3 class="title-3 m-b-30">Top read e-mails</h3>
@@ -230,10 +216,10 @@
                             </div>
                             <!-- END TOP CAMPAIGN-->
                         </div>
-                        <div class="col-md-6 col-lg-4">
+                        <div class="col-md-6 col-lg-6">
                             <!-- CHART PERCENT-->
                             <div class="chart-percent-2">
-                                <h3 class="title-3 m-b-30">chart by %</h3>
+                                <h3 class="title-3 m-b-30">Read %</h3>
                                 <div class="chart-wrap">
                                     <canvas id="percent-chart2"></canvas>
                                     <div id="chartjs-tooltip">
@@ -243,11 +229,11 @@
                                 <div class="chart-info">
                                     <div class="chart-note">
                                         <span class="dot dot--blue"></span>
-                                        <span>products</span>
+                                        <span>Read</span>
                                     </div>
                                     <div class="chart-note">
                                         <span class="dot dot--red"></span>
-                                        <span>Services</span>
+                                        <span>Not read</span>
                                     </div>
                                 </div>
                             </div>
@@ -382,26 +368,6 @@
 
     <!--END MODALS-->
 
-    <!--MODAL SCRIPTS (AUTO COPY)-->
-    <script>
-        $(document).ready(function() {
-            $('.trackID').on('click',function() {
-                txt = 'https://matheusmiliorini.com.br/trackID/' + $(this).text();
-                $('#link').val(txt);
-            });
-
-            $('#btnCopy').on('click',function() {
-                var copyText = $("#link");
-                /* Select the text field */
-                copyText.select();
-                /* Copy the text inside the text field */
-                document.execCommand("copy");
-            });
-        });
-    </script>
-    <!--END MODAL SCRIPTS-->
-
-    
     <!-- Bootstrap JS-->
     <script src="/vendor/bootstrap-4.1/popper.min.js"></script>
     <script src="/vendor/bootstrap-4.1/bootstrap.min.js"></script>
@@ -423,6 +389,28 @@
 
     <!-- Main JS-->
     <script src="/js/main.js"></script>
+    <script src="/js/graficoPizza.js"></script>
+
+    <!--MODAL SCRIPTS (AUTO COPY)-->
+    <script>
+        $(document).ready(function() {
+            $('.trackID').on('click',function() {
+                txt = 'https://matheusmiliorini.com.br/trackID/' + $(this).text();
+                $('#link').val(txt);
+            });
+
+            $('#btnCopy').on('click',function() {
+                var copyText = $("#link");
+                /* Select the text field */
+                copyText.select();
+                /* Copy the text inside the text field */
+                document.execCommand("copy");
+            });
+
+            graficoPizza({{$lidos_nao_lidos->lido}},{{$lidos_nao_lidos->nao_lido}});
+        });
+    </script>
+    <!--END MODAL SCRIPTS-->
 
 </body>
 
