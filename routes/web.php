@@ -11,6 +11,10 @@
 |
 */
 
+Route::get('/meuip',function () {
+    return $_SERVER['REMOTE_ADDR'];
+});
+
 Route::get('/login', function () {
     return view('login');
 });
