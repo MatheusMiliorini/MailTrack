@@ -23,9 +23,9 @@
                 DB::update("UPDATE trackIDs SET contagem_acessos=contagem_acessos+1 WHERE trackID=?",[$id]);
 
                 //Verifica se é o primeiro acesso
-		$primeiro_acesso = DB::select("SELECT primeiro_acesso FROM trackIDs WHERE trackID=?",[$id]);
-		//Altera o TrackID para mostrar este como o primeiro acesso
-		if ($primeiro_acesso[0]->primeiro_acesso == "" || $primeiro_acesso[0]->primeiro_acesso == null) {
+                $primeiro_acesso = DB::select("SELECT primeiro_acesso FROM trackIDs WHERE trackID=?",[$id]);
+                //Altera o TrackID para mostrar este como o primeiro acesso
+                if ($primeiro_acesso[0]->primeiro_acesso == "" || $primeiro_acesso[0]->primeiro_acesso == null) {
                     DB::update("UPDATE trackIDs SET primeiro_acesso=? WHERE trackID=?",[date('Y-m-d H:i:s'),$id]);
                 }
             }

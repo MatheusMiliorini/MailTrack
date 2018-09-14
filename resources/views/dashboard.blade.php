@@ -197,11 +197,12 @@
                         </div>
                     </div>
                     <div class="row">
+                    <!--
                     <div class="col-md-6 col-lg-4">
-                            <!-- ANUNCIO-->
+                            ANUNCIO
                             <div class="top-campaign">
                                 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-                                <!-- Mailtrack-dashboard -->
+                                Mailtrack-dashboard
                                 <ins class="adsbygoogle"
                                     style="display:block"
                                     data-ad-client="ca-pub-6222201487774772"
@@ -211,9 +212,10 @@
                                 (adsbygoogle = window.adsbygoogle || []).push({});
                                 </script>
                             </div>
-                            <!-- END ANUNCIO-->
+                            END ANUNCIO
                         </div>
-                        <div class="col-md-6 col-lg-4">
+                    -->
+                        <div class="col-md-6 col-lg-6">
                             <!-- TOP CAMPAIGN-->
                             <div class="top-campaign">
                                 <h3 class="title-3 m-b-30">Top read e-mails</h3>
@@ -232,7 +234,7 @@
                             </div>
                             <!-- END TOP CAMPAIGN-->
                         </div>
-                        <div class="col-md-6 col-lg-4">
+                        <div class="col-md-6 col-lg-6">
                             <!-- CHART PERCENT-->
                             <div class="chart-percent-2">
                                 <h3 class="title-3 m-b-30">Read %</h3>

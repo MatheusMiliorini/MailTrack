@@ -11,6 +11,10 @@
 |
 */
 
+Route::get('/',function() {
+    return redirect('/dashboard');
+});
+
 Route::get('/meuip',function () {
     return $_SERVER['REMOTE_ADDR'];
 });
@@ -22,6 +26,8 @@ Route::get('/login', function () {
 Route::get('/register',function() {
     return view('register');
 });
+
+Route::get('/activate/{codigo}','LoginController@ativaConta');
 
 Route::get('/logout','LoginController@logout')->middleware('checkLogin');
 
