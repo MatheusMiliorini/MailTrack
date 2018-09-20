@@ -413,7 +413,7 @@
     <script>
         $(document).ready(function() {
             $('.trackID').on('click',function() {
-                txt = 'https://matheusmiliorini.com.br/trackID/' + $(this).text();
+                txt = 'https://miliorini.tk/trackID/' + $(this).text();
                 $('#link').val(txt);
             });
 

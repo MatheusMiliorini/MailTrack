@@ -4,6 +4,7 @@
     use App\Http\Controllers\Controller;
     use Illuminate\Support\Facades\DB;
     use Illuminate\Http\Request;
+    use App\PHPMailerAPI;
     use Exception;
 
     class LoginController extends Controller {
@@ -39,13 +40,16 @@
             $dados = $request->all();
 
             try {
+                $codigo = md5($dados['email'].time());
                 //Adiciona um novo usuário desabilitado, e com código pra ativação
                 $inseriu = DB::insert('INSERT INTO usuarios(email_usuario,primeiro_nome,ultimo_nome,senha,ativo,codigo_verificacao) VALUES(?,?,?,?,?,?)',[
-                    $dados['email'],$dados['nome'],$dados['sobrenome'],md5($dados['password']),0,md5($dados['email'].time())
+                    $dados['email'],$dados['nome'],$dados['sobrenome'],md5($dados['password']),0,$codigo
                 ]);
     
                 if ($inseriu) {
+                    PHPMailerAPI::sendEmail($dados['email'],$dados['nome'],$dados['sobrenome'],$codigo);
                     return redirect('/login')->with('message','Account created. Please check your e-mail for the activation code :D');
+                    
                 }
             } catch(Exception $e) {
                 return redirect('/register')->with('erro','An error has occured. Please try again using a different e-mail');
