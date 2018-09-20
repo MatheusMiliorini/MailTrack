@@ -75,7 +75,7 @@
                     if ($mudou == 1) {
                         DB::update("UPDATE usuarios SET codigo_verificacao=NULL WHERE codigo_verificacao=?",[$codigo]);
                         //Joga o usuário de volta para a tela de login com a mensagem de que agora pode logar
-                        return redirect('/login')->with('message','User enabled. You can loggin now :D');
+                        return redirect('/login')->with('message','User enabled. You can login now :D');
                     }
                 } else {
                     //Se o usuário já estiver ativo, joga para a tela de login
